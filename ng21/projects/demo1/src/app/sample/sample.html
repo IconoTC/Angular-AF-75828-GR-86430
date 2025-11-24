@@ -1,0 +1,7 @@
+    <h2>
+      {{ title()[0] === "S"
+      ? title()
+      : title().toUpperCase() }}
+    </h2>
+    <p [title]="pTitle()">Este es un ejemplo de un componente básico.</p>
+    <button (click)="onClick()">Haz click</button>
