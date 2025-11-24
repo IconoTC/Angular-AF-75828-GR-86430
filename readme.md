@@ -11,6 +11,27 @@ Instructor: Alejandro Cerezo Lasne <alce65@hotmail.es>
 
 Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
 
+## Objetivos
+
+- Día 1
+  - Introducción a TypeScript y Angular (igual que antes)
+  - Entrono de desarrollo y Angular CLI
+- Día 2
+  - Componentes básico. Testing de componentes
+  - Componentes: estado. Zone v. Zoneless
+  - Enrutamiento Pipes y localización
+- Día 3
+  - Comunicación entre componentes
+  - Arquitectura
+  - Formularios TD
+- Día 4
+  - Servicios. Providers e injectors
+  - Formularios DD 
+- Día 5
+  - Servicios HTTP
+  - Servicios stateful: patrón Flux
+
+
 <!-- ## Día 1 (L-24): Introducción a Typescript y Angular
 
 - Introducción a Angular y su ecosistema.
@@ -38,9 +59,6 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
   - Servidor de desarrollo: `ng serve`.
   - Testing con Karma y Jasmine: `ng test`.
   - Construcción del proyecto: `ng build`.
-- Reconfiguración del testing con Jasmine sin karma (`ng g config karma`)
-  - Configuración de Karma y Jasmine.
-  - Coverage Istanbul
 - Generación de componentes: `ng generate component <nombre>`.
   - Elementos de un componente: HTML, CSS, TypeScript.
   - Template y estilos inline o en ficheros.
