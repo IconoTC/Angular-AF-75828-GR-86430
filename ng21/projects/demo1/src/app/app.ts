@@ -12,5 +12,5 @@ import { RouterOutlet } from '@angular/router';
   styles: [],
 })
 export class App {
-  protected readonly title = signal('demo1');
+  protected readonly title = signal('Demo 1 - Angular 21');
 }
