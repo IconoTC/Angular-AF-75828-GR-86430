@@ -16,8 +16,9 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
 - Día 1
   - Introducción a TypeScript y Angular (igual que antes)
   - Entrono de desarrollo y Angular CLI
+  - Componentes básico (1)
 - Día 2
-  - Componentes básico. Testing de componentes
+  - Componentes básico (2). Testing de componentes
   - Componentes: estado. Zone v. Zoneless
   - Enrutamiento Pipes y localización
 - Día 3
@@ -26,15 +27,16 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
   - Formularios TD
 - Día 4
   - Servicios. Providers e injectors
-  - Formularios DD 
+  - Formularios DD
 - Día 5
   - Servicios HTTP
   - Servicios stateful: patrón Flux
 
-
-<!-- ## Día 1 (L-24): Introducción a Typescript y Angular
+## Día 1 (L-24): Introducción a Typescript y Angular
 
 - Introducción a Angular y su ecosistema.
+- Requisitos: Node.js y npm. Editor VSCode
+- Instalación y configuración de TS
 - Elementos básicos de TypeScript.
 
   - Tipos de datos. Inferencia y anotación de tipos.
@@ -45,24 +47,35 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
     - Getters y Setters de ES.
     - Herencia.
     - Clases abstractas.
+
+- [Descanso]: 11:45 - 12:10 hs
+
+- Elementos básicos de TypeScript. (continuación)
+
   - Promesas y genéricos
+  - Módulos ES6 en TypeScript.
+    - Import y Export.
+    - Módulos por defecto y nombrados.
+  - Decoradores en TypeScript.
 
-- [Descanso]
-
-- Requisitos: Node.js y npm. Editor VSCode. Extensiones recomendadas.
-- Instalación de Angular CLI.
-- Creación de un nuevo workspace Angular sin proyecto. `ng new`
-- Creación de un nuevo proyecto (app) Angular. `ng generate app`
-- Estructura de un workspace/proyecto Angular.
-- Añadiendo ESLint (`ng add`) y Prettier.
-- Angular CLI: Comandos básicos.
-  - Servidor de desarrollo: `ng serve`.
-  - Testing con Karma y Jasmine: `ng test`.
-  - Construcción del proyecto: `ng build`.
-- Generación de componentes: `ng generate component <nombre>`.
-  - Elementos de un componente: HTML, CSS, TypeScript.
-  - Template y estilos inline o en ficheros.
-- Guía de estilos actualizada -->
+- Entorno y proyectos en Angular
+  - VSCode Extensiones recomendadas.
+  - Instalación de Angular CLI.
+  - Creación de un nuevo workspace Angular sin proyecto. `ng new`
+  - Creación de un nuevo proyecto (app) Angular. `ng generate app`
+  - Estructura de un workspace/proyecto Angular.
+  - Añadiendo ESLint (`ng add`) y Prettier.
+  - Angular CLI: Comandos básicos.
+    - Servidor de desarrollo: `ng serve`.
+    - Testing con Vitest: `ng test`.
+    - Testing con Playwright: `ng e2e`.
+    - Construcción del proyecto: `ng build`.
+  - Generación de componentes: `ng generate component <nombre>`.
+    - Elementos de un componente: HTML, CSS, TypeScript.
+    - Template y estilos inline o en ficheros.
+    - Guía de estilos actualizada
+    - Programación declarativa en el template: {{}}, [], ()
+    - Signals en el estado del componente y en la plantilla.
 
 <!-- ## Día 2 (M-25): Componentes y Rutas
 
