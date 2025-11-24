@@ -2,6 +2,14 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
 
+Creado con el comando:
+
+```bash
+ng new ng21 --create-application false --ai-config copilot
+cd ng21
+ng g app demo1 -s -t -p ind --style css --ssr false          
+```
+
 ## Development server
 
 To start a local development server, run:
