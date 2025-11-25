@@ -77,7 +77,39 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
     - Programación declarativa en el template: {{}}, [], ()
     - Signals en el estado del componente y en la plantilla.
 
-<!-- ## Día 2 (M-25): Componentes y Rutas
+## Día 2 (M-25): Componentes y Rutas
+
+- Testing de componentes. Pruebas unitarias
+
+  - Test con Vitest. Conceptos básicos y ejemplo
+  - Elementos de los test en Angular: TestBed, fixture, detectChanges()
+  - Test de implementación v. test de comportamiento.
+  - Tests para componentes básicos.
+
+- Scaffolding. Core
+
+  - Componentes Header y Footer.
+  - Componente Menu. Proyección de contenido
+  - Componentes Card y Layout. Aspecto visual básico.
+  - AppComponent como contenedor principal.
+
+- Testing de todos los componentes
+
+  - Test de Header, Footer, Menu, Card y Layout.
+
+- [Descanso]: 11:50 - 12:15
+
+- Scaffolding. Features
+
+  - Componentes (pages): Home, Tasks, About.
+
+- Componentes.
+  - Componente Counter. Eventos. (click)
+  - Componente Greeting. Input de usuario: data binding. [(ngModel)]
+  - Componente Counter2. Condicionales @If. [class]
+- Referencias locales
+
+  - Componente GreetingRef. Referencias locales en el template.
 
 - Componentes: estado. Zone v. Zoneless
 - Estado en los componentes con ZoneJS.
@@ -85,8 +117,9 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
   - Detección del cambio: Zone v. Zoneless
   - Signals y estado
   - Zoneless y asincronía: uso de Signals
-- Scaffolding. Core y Features
-  - Componentes (pages): Home, Tasks, About.
+
+<!--
+
 - Rutas básicas. `app.routes.ts`
   - Array de rutas.
   - Array de opciones de menu
@@ -95,24 +128,7 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
   - SPA: RouterLink y RouterLinkActive
 - Rutas Lazy. Default import en las páginas
 
-- [Descanso]
-
-- Testing de componentes. Pruebas unitarias
-
-  - Elementos de los test en Angular: TestBed, fixture, detectChanges()
-  - Test de implementación v. test de comportamiento.
-  - Tests para componentes básicos.
-
-- Componentes.
-  - Componente Counter. Condicionales @If. [class]
-  - Componente Greeting. Input de usuario: data binding. [(ngModel)]
-  - Componente Layout. Proyección de contenido
-    - Componente Header.
-    - Componente Footer.
 - Pipes. Location "es"
-
-- Testing de componentes (2)
-  - Ajustar entorno en tests para componentes. -->
 
 <!-- ## Día 3 (X-26). Comunicaciones y Arquitectura de componentes. Formularios TD
 
