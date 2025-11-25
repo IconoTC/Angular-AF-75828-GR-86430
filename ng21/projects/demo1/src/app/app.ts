@@ -1,20 +1,18 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Sample } from "./sample/sample";
-
+import { Menu } from './core/components/menu/menu';
+import { Card } from './core/components/card/card';
+import { Layout } from './core/components/layout/layout';
 @Component({
   selector: 'ind-root',
-  imports: [RouterOutlet, Sample],
+  imports: [RouterOutlet, Menu, Card, Layout],
   template: `
-    <h1>Welcome to {{ title() }}!</h1>
-    <ind-sample />
-    <ind-sample />
-    <ind-sample />
-
-    <router-outlet />
+    <ind-layout  class="layout">
+      <ind-menu />
+      <router-outlet />
+      <ind-card>Aquí irá el contenido de la aplicación</ind-card>
+    </ind-layout>
   `,
   styles: [],
 })
-export class App {
-  protected readonly title = signal('Demo 1 - Angular 21');
-}
+export class App {}
