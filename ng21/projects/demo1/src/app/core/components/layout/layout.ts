@@ -8,7 +8,7 @@ import { Footer } from '../footer/footer';
   template: `
     <ind-header>
       <!--  aqi va el menu -->
-      <ng-content select="ind-menu"></ng-content>
+      <ng-content select=".main-menu"></ng-content>
     </ind-header>
 
     <main>

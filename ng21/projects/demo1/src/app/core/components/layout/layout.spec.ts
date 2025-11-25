@@ -10,10 +10,10 @@ const MAIN_MENU = "main-menu";
 
 @Component({
   imports: [Layout],
-  template: `<alc-layout>
+  template: `<ind-layout>
     <div class="main-menu">{{ menu }}</div>
     {{ text }}
-  </alc-layout>`,
+  </ind-layout>`,
 })
 class TestComponent {
   protected readonly text = TEXT;
