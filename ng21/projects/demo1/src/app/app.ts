@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Menu } from './core/components/menu/menu';
-import { Card } from './core/components/card/card';
 import { Layout } from './core/components/layout/layout';
+import HomePage from './features/home/home-page';
+import AboutPage from './features/about/about-page';
 @Component({
   selector: 'ind-root',
-  imports: [RouterOutlet, Menu, Card, Layout],
+  imports: [RouterOutlet, Menu, Layout, HomePage, AboutPage],
   template: `
-    <ind-layout  class="layout">
+    <ind-layout class="layout">
       <ind-menu />
       <router-outlet />
-      <ind-card>Aquí irá el contenido de la aplicación</ind-card>
+      <ind-home-page />
+      <ind-about-page />
     </ind-layout>
   `,
   styles: [],
