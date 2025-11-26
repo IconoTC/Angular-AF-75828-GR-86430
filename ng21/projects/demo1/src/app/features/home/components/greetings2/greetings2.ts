@@ -6,8 +6,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'ind-greetings2',
   imports: [Card, FormsModule],
   template: `
-    <ind-card>
-      <h3>Greetings with References</h3>
+    <ind-card title="Saludos con referencias">
       <p>Hola
       <output>
         {{ nameInput.value ? nameInput.value : 'amigo' }}

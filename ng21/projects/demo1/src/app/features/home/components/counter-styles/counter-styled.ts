@@ -7,8 +7,7 @@ const LIMIT = 5;
   selector: 'ind-counter-styled',
   imports: [Card],
   template: `
-    <ind-card>
-      <h3>Counter styled</h3>
+    <ind-card title="Contador estilado">
       <button (click)="handleCounter(-1)" title="Decrementar" [disabled]="counter() <= -limit">
         ➖
       </button>

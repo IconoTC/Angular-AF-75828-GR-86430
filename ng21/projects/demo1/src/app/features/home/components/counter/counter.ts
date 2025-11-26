@@ -5,8 +5,7 @@ import { Card } from '../../../../core/components/card/card';
   selector: 'ind-counter',
   imports: [Card],
   template: `
-    <ind-card>
-      <h3>Counter</h3>
+    <ind-card title="Counter">
       <button (click)="handleCounter(-1)" title="Decrementar">➖</button>
       <span>
         Valor del contador
