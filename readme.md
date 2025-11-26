@@ -91,7 +91,7 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
   - Componentes Header y Footer.
   - Componente Menu. Proyección de contenido
   - Componentes Card y Layout. Aspecto visual básico.
-  - AppComponent como contenedor principal.
+  - App como contenedor principal.
 
 - Testing de todos los componentes
 
@@ -101,13 +101,14 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
 
 - Scaffolding. Features
 
-  - Componentes (pages): Home, Tasks, About.
+  - Componentes (pages): Home, About.
 
 - Componentes.
   - Componente Counter. Eventos. (click)
   - Componente Greeting. Input de usuario: data binding. [(ngModel)]
   - Componente Counter2. Condicionales @If. [class]
-- Referencias locales
+  - Modificamos Menu. @for
+- Referencias locales. #ref
 
   - Componente GreetingRef. Referencias locales en el template.
 
@@ -118,7 +119,10 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
   - Signals y estado
   - Zoneless y asincronía: uso de Signals
 
-<!--
+## Día 3 (X-26). Comunicaciones y Arquitectura de componentes. Formularios TD
+
+<!-- - Testing de componentes (continuación)
+  - Pruebas unitarias para componentes con eventos y data binding. -->
 
 - Rutas básicas. `app.routes.ts`
   - Array de rutas.
@@ -128,39 +132,40 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
   - SPA: RouterLink y RouterLinkActive
 - Rutas Lazy. Default import en las páginas
 
-- Pipes. Location "es"
+<!-- - Testing de rutas y componente menú --->
 
-<!-- ## Día 3 (X-26). Comunicaciones y Arquitectura de componentes. Formularios TD
-
-- Testing de componentes (continuación)
-  - Pruebas unitarias para componentes con eventos y data binding.
-- Debugging
 - Comunicación entre componentes
 
   - Input. Decoradores @Input. función input(). Drilling del título
   - Output. Decorador @Output. EventEmitter. Función output(). Eventos del contador
   - Agrupando contadores.
   - Contadores. Eventos con valor
-  - Testing de componentes con comunicación.
 
-- [Descanso]
+<!-- Testing de componentes con Input y Output. -->
+
+- [Descanso] : 11:40 - 12:10
+
+- Pipes. Location "es"
 
 - Arquitectura de componentes
   - Componentes de contenedores vs de presentación.
   - Componentes inteligentes vs tontos.
-- Ejemplo: Notes List
-  - Entidad Notes. Modelo y mock de datos asíncrono.
-  - Componente Notes-List. Lógica del estado
-  - Componente Notes-Item. Input y Output (Eventos)
-  - Componente Notes-Create. Output (Eventos)
+- Ejemplo: Tasks List
+  - Entidad Tasks. Modelo y mock de datos asíncrono.
+  - Componente Tasks-List. Lógica del estado
+  - Componente Tasks-Item. Input y Output (Eventos)
+  - Componente Tasks-Form. Output (Eventos)
     - Forms Template Driven (TD)
     - NgForm implícito, NgModel. Referencias locales
     - viewChild(NgForm) y form.reset()
-    - viewChild(Form), ElementRef.nativeElement y acceso al DOM -->
+    - viewChild(Form), ElementRef.nativeElement y acceso al DOM 
+
+<!--
+- Tests de Forms TD
+ -->
 
 <!-- ## Día 4 (J-27). Servicios. Providers e injectors. Formularios DD
 
-- Tests de Forms TD
 - Introducción a los servicios en Angular.
 - Servicios y Providers. DI (Dependency Injection)
 
