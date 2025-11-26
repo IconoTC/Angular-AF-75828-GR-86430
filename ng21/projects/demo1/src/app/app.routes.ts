@@ -32,6 +32,14 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'todo',
+    loadComponent: () => import('./features/todo/todo-page'),
+    title: 'Todo | Demo1',
+    data: {
+      label: 'Tareas',
+    },
+  },
+  {
     path: 'about',
     loadComponent: () => import('./features/about/about-page'),
     title: 'About | Demo1',
