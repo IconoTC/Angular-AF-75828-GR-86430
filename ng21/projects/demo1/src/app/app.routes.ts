@@ -16,11 +16,11 @@ export const routes: Routes = [
     },
   },
   {
-    path: 'about',
-    loadComponent: () => import('./features/about/about-page'),
-    title: 'About | Demo1',
+    path: 'counters',
+    loadComponent: () => import('./features/counters/counters-page'),
+    title: 'Counters | Demo1',
     data: {
-      label: 'Acerca de',
+      label: 'Contadores',
     },
   },
   {
@@ -29,6 +29,14 @@ export const routes: Routes = [
     title: 'Proofs | Demo1',
     data: {
       label: 'Pruebas',
+    },
+  },
+  {
+    path: 'about',
+    loadComponent: () => import('./features/about/about-page'),
+    title: 'About | Demo1',
+    data: {
+      label: 'Acerca de',
     },
   },
   {
