@@ -8,4 +8,5 @@ export interface Task {
 export interface TaskDTO {
   title: string;
   owner: string;
+  isCompleted?: boolean;
 }

@@ -8,6 +8,7 @@ import { Card } from '../../../../core/components/card/card';
   template: `
     <ind-card [title]="task().title">
       <p>Responsable: {{ task().owner }}</p>
+      <p>ID: {{ task().id }}</p>
       <label>
         <input type="checkbox" [checked]="task().isCompleted"
         (change)="handleEmitChange()"
