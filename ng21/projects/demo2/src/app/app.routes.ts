@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { MenuOption } from './core/types/menu-option';
+import { TasksService } from './features/todo/services/tasks';
+import { Time } from './core/services/time';
 
 export const routes: Routes = [
   {
@@ -9,7 +11,7 @@ export const routes: Routes = [
   },
   {
     path: 'home',
-   loadComponent: () => import('./features/home/home-page'),
+    loadComponent: () => import('./features/home/home-page'),
     title: 'Home | Demo1',
     data: {
       label: 'Inicio',
@@ -22,6 +24,7 @@ export const routes: Routes = [
     data: {
       label: 'Tareas',
     },
+    providers: [TasksService],
   },
   {
     path: 'about',
@@ -30,6 +33,7 @@ export const routes: Routes = [
     data: {
       label: 'Acerca de',
     },
+    providers: [Time],
   },
   {
     path: '**',

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Time } from '../../core/services/time';
 
 @Component({
   selector: 'ind-home-page',
@@ -9,6 +10,11 @@ import { Component } from '@angular/core';
   styles: ``,
 })
 class HomePage {
+
+  // eslint-disable-next-line @angular-eslint/prefer-inject
+  constructor(public timeService: Time) {
+    console.log(this.timeService.getTime())
+  }
 
 }
 

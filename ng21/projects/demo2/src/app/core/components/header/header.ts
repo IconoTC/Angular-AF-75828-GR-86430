@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { TITLE } from '../../../app.config';
 
 @Component({
   selector: 'ind-header',
@@ -49,7 +50,10 @@ import { Component, signal } from '@angular/core';
   `,
 })
 export class Header {
-  protected readonly title = signal('Demo 2 - Angular 21');
+
+  appTitle = inject(TITLE);
+
+  protected readonly title = signal(this.appTitle);
   protected readonly subtitle = signal('Indra Formación');
   protected readonly name = signal('Demo 2');
 }
