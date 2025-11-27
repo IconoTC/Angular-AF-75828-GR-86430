@@ -138,8 +138,8 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
 
   - Input. Decoradores @Input. función input(). Drilling del título
   - Output. Decorador @Output. EventEmitter. Función output(). Eventos del contador
-  - Agrupando contadores.
-  - Contadores. Eventos con valor
+  - Agrupando contadores. Estado en el componente padre
+  - Contadores. Eventos con valor. Computed signals
 
 <!-- Testing de componentes con Input y Output. -->
 
@@ -158,7 +158,7 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
     - Forms Template Driven (TD)
     - NgForm implícito, NgModel. Referencias locales
     - viewChild(NgForm) y form.reset()
-    - viewChild(Form), ElementRef.nativeElement y acceso al DOM 
+    - viewChild(Form), ElementRef.nativeElement y acceso al DOM
 
 <!--
 - Tests de Forms TD
