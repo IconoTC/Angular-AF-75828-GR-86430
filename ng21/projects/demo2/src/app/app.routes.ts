@@ -1,7 +1,14 @@
 import { Routes } from '@angular/router';
 import { MenuOption } from './core/types/menu-option';
-import { TasksService } from './features/todo/services/tasks';
 import { Time } from './core/services/time';
+import { InjectionToken } from '@angular/core';
+import { InMemoryTasksRepoRx } from './features/todo/services/in-memory-tasks-repo-rx';
+import { LocalTasksRepoRx } from './features/todo/services/local-tasks-repo-rx';
+import { RepoRx } from './core/types/repo';
+import { Task, TaskDTO } from './features/todo/types/task';
+
+export const TasksRepoRx = new InjectionToken<RepoRx<Task, TaskDTO>>('TaskRepo');
+//export const TasksRepoRx = new InjectionToken<InMemoryTasksRepoRx>('TaskRepo');
 
 export const routes: Routes = [
   {
@@ -24,7 +31,22 @@ export const routes: Routes = [
     data: {
       label: 'Tareas',
     },
-    providers: [TasksService],
+    providers: [
+      {
+        provide: TasksRepoRx,
+        useFactory: () => {
+          const n = Math.random();
+          if (n > 1) {
+            console.log('Using LocalTasksRepoRx');
+            return new InMemoryTasksRepoRx();
+          } else {
+            console.log('Using LocalTasksRepoRx');
+            return new LocalTasksRepoRx();
+          }
+        },
+        //useClass: InMemoryTasksRepoRx
+      },
+    ],
   },
   {
     path: 'about',
