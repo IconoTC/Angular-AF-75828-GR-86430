@@ -7,10 +7,12 @@ import { TasksList } from "./components/tasks-list/tasks-list";
   template: `
     <h2>Tareas</h2>
     <ind-tasks-list />
+    <!-- new TaskList -->
   `,
   styles: ``,
 })
 class TodoPage {
 
+   // new TaskList()
 }
 export default TodoPage;
