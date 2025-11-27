@@ -164,44 +164,49 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
 - Tests de Forms TD
  -->
 
-<!-- ## Día 4 (J-27). Servicios. Providers e injectors. Formularios DD
+## Día 4 (J-27). Servicios. Providers e injectors. Formularios DD
 
 - Introducción a los servicios en Angular.
 - Servicios y Providers. DI (Dependency Injection)
 
   - Provider root v. provider en un componente / ruta
-  - Ejemplo con un servicio simple: DateService
+  - Ejemplo con un servicio simple: Time
   - Injector jerárquico. Servicios singleton y no singleton.
+  - Inyección de una constante: TITLE_APP
 
 - Servicios y patrón Repository
 
   - Servicio InMemoryTaskRepository. Mock de datos.
+  - Uso de promesas
   - Uso en los componentes. Inyección de dependencias.
-  - Métodos CRUD. getAll() y getById()
+  - Repositorio y lógica de negocio (estado). Estrategias
 
-- [Descanso]
+- [Descanso] - 11:50 - 12:15
 
 - Servicios y patrón Repository (continuación)
 
+  - Métodos CRUD. getAll() y getById()
   - Métodos CRUD. add(), update(), delete()
-  - Uso de promesas
-  - Repositorio y lógica de negocio (estado). Estrategias
   - Repositorio y persistencia local (localStorage).
-  - Testing de servicios.
+
+  <!-- - Testing de servicios.
     - Tests del servicio
       - Test de métodos CRUD.
       - Test de promesas (async, whenStable, expectAsync).
-    - Testing de componentes con servicios (mocks y spies).
+    - Testing de componentes con servicios (mocks y spies). -->
 
-- Formularios reactivos (DD)
+- Formularios reactivos (DD). LoginForm
   - FormGroup, FormControl, FormBuilder
   - Binding desde el template -->
+  - Validaciones síncronas (y asíncronas).
+    - Mensajes de validación
+
+<!--
 
 <!-- ## Día 5 (V-28). Servicios HTTP
 
-- Formularios reactivos (review). Mensajes de validación
-
-  - Validaciones síncronas y asíncronas.
+- Formularios reactivos (review).
+  - RegisterForm. Otros controles HTML
   - Testing de formularios reactivos.
 
 - Introducción a los servicios HTTP en Angular.ç
@@ -222,4 +227,8 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
   - Estado con RxJS: Subjects
   - Clonado de ToDo como ToDo-Flux
   - Uso del estado desde los componentes ToDo...
-  - Uso desde cualquier parte de la aplicación. -->
+  - Uso desde cualquier parte de la aplicación.
+  -
+- ¿Directivas?
+- ¿@defer?
+-->
