@@ -1,16 +1,21 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Menu } from './core/components/menu/menu';
+import { Layout } from './core/components/layout/layout';
+import { MenuOption } from './core/types/menu-option';
+import { menuOptions } from './app.routes';
 
 @Component({
   selector: 'ind-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Menu, Layout],
   template: `
-    <h1>Welcome to {{ title() }}!</h1>
-
-    <router-outlet />
+    <ind-layout class="layout">
+      <ind-menu [options]="menuOptions" class="main-menu" />
+      <router-outlet />
+    </ind-layout>
   `,
   styles: [],
 })
 export class App {
-  protected readonly title = signal('demo2');
+  protected menuOptions: MenuOption[] = menuOptions;
 }
