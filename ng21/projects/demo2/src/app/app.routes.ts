@@ -6,6 +6,7 @@ import { InMemoryTasksRepoRx } from './features/todo/services/in-memory-tasks-re
 import { LocalTasksRepoRx } from './features/todo/services/local-tasks-repo-rx';
 import { RepoRx } from './core/types/repo';
 import { Task, TaskDTO } from './features/todo/types/task';
+import { ApiTasksRepoRx } from './features/todo/services/api-tasks-repo-rx';
 
 export const TasksRepoRx = new InjectionToken<RepoRx<Task, TaskDTO>>('TaskRepo');
 //export const TasksRepoRx = new InjectionToken<InMemoryTasksRepoRx>('TaskRepo');
@@ -36,12 +37,14 @@ export const routes: Routes = [
         provide: TasksRepoRx,
         useFactory: () => {
           const n = Math.random();
-          if (n > 1) {
+          if (n > 2) {
             console.log('Using LocalTasksRepoRx');
             return new InMemoryTasksRepoRx();
-          } else {
+          } else if (n >1) {
             console.log('Using LocalTasksRepoRx');
             return new LocalTasksRepoRx();
+          } else {
+            return new ApiTasksRepoRx();
           }
         },
         //useClass: InMemoryTasksRepoRx
