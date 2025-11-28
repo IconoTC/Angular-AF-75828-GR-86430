@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "id": "1c5b",
+      "title": "Complete the Angular project",
+      "owner": "Pepe",
+      "isCompleted": false
+    },
+    {
+      "id": "2e4f",
+      "title": "Review pull requests",
+      "owner": "Ana",
+      "isCompleted": true
+    }
+  ],
+  "users": [
+    {
+      "id": "u1",
+      "name": "Pepe",
+      "email": "pepe@example.com"
+    },
+    {
+      "id": "u2",
+      "name": "Ana",
+      "email": "ana@example.com"
+    }
+  ]
+}
