@@ -1,0 +1,13 @@
+.form-control {
+  margin-bottom: 1rem;
+}
+span {
+  font-size: 14px;
+  color: gray;
+  padding: 1rem;
+}
+.error {
+  color: red;
+  font-size: 12px;
+  margin: 0.25rem 0 0.5rem 0;
+}

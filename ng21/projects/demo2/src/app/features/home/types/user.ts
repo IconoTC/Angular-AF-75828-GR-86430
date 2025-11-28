@@ -6,7 +6,7 @@
 
   export type Gender = 'M' | 'F' | 'O';
 
-  export type Country = 'ES' | 'FR' | 'IT' | 'DE' | 'US' | 'UK';
+  export type Country = 'ES' | 'FR' | 'IT' | 'DE' | 'OT' ;
 
 
   export interface User extends LoginData {

@@ -1,12 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Card } from '../../../../core/components/card/card';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { JsonPipe } from '@angular/common';
 import { LoginData } from '../../types/user';
 
 @Component({
   selector: 'ind-login',
-  imports: [Card, ReactiveFormsModule, JsonPipe],
+  imports: [Card, ReactiveFormsModule],
   template: `
     <ind-card title="Login">
       <form [formGroup]="loginFormGroup" (ngSubmit)="handleLogin()">
@@ -50,22 +49,9 @@ import { LoginData } from '../../types/user';
           <button type="submit" [disabled]="loginFormGroup.invalid">Login</button>
         </div>
       </form>
-
-      <pre>{{ loginFormGroup.value | json }}</pre>
     </ind-card>
   `,
-  styles: `
-    span {
-      font-size: 14px;
-      color: gray;
-      padding: 1rem;
-    }
-    .error {
-      color: red;
-      font-size: 12px;
-      margin: 0.25rem 0 0.5rem 0;
-    }
-  `,
+  styleUrls: ['../forms.css'],
 })
 export class Login {
   // FormGroup, FormControl, Validators
