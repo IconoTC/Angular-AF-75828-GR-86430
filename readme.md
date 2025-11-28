@@ -176,8 +176,9 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
 
 - Servicios y patrón Repository
 
-  - Servicio InMemoryTaskRepository. Mock de datos.
-  - Uso de promesas
+  - Mock de datos. Interface de los repositorios
+  - Uso de promesas y observables (RxJS) en los servicios.
+  - Servicio InMemoryTaskRepository.
   - Uso en los componentes. Inyección de dependencias.
   - Repositorio y lógica de negocio (estado). Estrategias
 
@@ -188,6 +189,8 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
   - Métodos CRUD. getAll() y getById()
   - Métodos CRUD. add(), update(), delete()
   - Repositorio y persistencia local (localStorage).
+  - Servicio LocalTaskRepository.
+  - Los mismos repositorios usando RxJS (Observables).
 
   <!-- - Testing de servicios.
     - Tests del servicio
@@ -196,39 +199,44 @@ Repositorio: <https://github.com/IconoTC/Angular-AF-75828-GR-86430>
     - Testing de componentes con servicios (mocks y spies). -->
 
 - Formularios reactivos (DD). LoginForm
+  - Usan RxJS (Observables)
   - FormGroup, FormControl, FormBuilder
   - Binding desde el template -->
   - Validaciones síncronas (y asíncronas).
     - Mensajes de validación
 
-<!--
-
-<!-- ## Día 5 (V-28). Servicios HTTP
+## Día 5 (V-28). Servicios HTTP
 
 - Formularios reactivos (review).
+
   - RegisterForm. Otros controles HTML
   - Testing de formularios reactivos.
 
-- Introducción a los servicios HTTP en Angular.ç
+- Introducción a los servicios HTTP en Angular.
 - Servicio fake basado en JSONServer.
   - Prueba con Postman
 - Servicio HttpClientModule. Observables (RxJs).
+
   - Creación de un ApiRepositoryService.
-  - Configuración del servicio HTTP: provider
+  - Antes de Angular 21: Configuración del servicio HTTP: provider
   - Uso desde la feature Tasks.
 
-- [Descanso]
+- [Descanso] 11:45 - 12:10
 
+<!--
 - Servicio HttpClientModule. Observables (RxJs).
   - Tests de servicios HTTP con HttpTestingController
   - Test de componentes con servicios HTTP (mocks y spies).
-
-- Servicios stateful: patrón Flux
-  - Estado con RxJS: Subjects
-  - Clonado de ToDo como ToDo-Flux
-  - Uso del estado desde los componentes ToDo...
-  - Uso desde cualquier parte de la aplicación.
-  -
-- ¿Directivas?
-- ¿@defer?
 -->
+
+Servicios stateful: patrón Flux
+
+- Estado con RxJS: Subjects
+- Nuevo proyecto. Feature Todo
+- Servicio Store con TodoState
+  - Estado privado con BehaviorSubject
+  - Estado público con Observable (asObservable)
+  - Métodos para modificar el estado (add, toggle, remove)
+- Uso del estado desde los componentes ToDo...
+- Gestión de errores
+- Uso desde cualquier parte de la aplicación (Header)
