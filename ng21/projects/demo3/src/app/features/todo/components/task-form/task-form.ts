@@ -1,7 +1,8 @@
-import { Component, ElementRef, OnInit, output, viewChild } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, output, viewChild } from '@angular/core';
 import { Card } from '../../../../core/components/card/card';
 import { FormsModule, NgForm } from '@angular/forms';
 import { TaskDTO } from '../../types/task';
+import { AppStore } from '../../../../core/store/app-store';
 
 @Component({
   selector: 'ind-task-form',
@@ -47,21 +48,18 @@ import { TaskDTO } from '../../types/task';
 export class TaskForm implements OnInit {
   form = viewChild<ElementRef>('form');
   ngForm = viewChild<NgForm>('ngForm');
-  createEvent = output<TaskDTO>();
+  createEvent = output<void>();
+  taskState = inject(AppStore);
 
   ngOnInit(): void {
     console.log(this.form());
     console.log(this.ngForm());
   }
 
-  // handleSubmit(data: TaskDTO) {
-  //   this.createEvent.emit(data);
-  //   this.ngForm()!.resetForm();
-  // }
-
   handleSubmit(ngForm: NgForm) {
     const data: TaskDTO = ngForm.value;
-    this.createEvent.emit(data);
+    this.taskState.create(data);
+    this.createEvent.emit();
     ngForm.resetForm();
   }
 }

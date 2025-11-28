@@ -1,15 +1,19 @@
 import { Component, inject, signal } from '@angular/core';
 import { TITLE } from '../../../app.config';
+import { AppStore } from '../../store/app-store';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'ind-header',
-  imports: [],
+  imports: [AsyncPipe],
   template: `
+    @let tasks = tasks$ | async;
     <header [aria-label]="name()">
       <img src="/favicon.ico" alt="Logo de Angular" />
       <div class="container">
         <h1>{{ title() }}</h1>
         <p>{{ subtitle() }}</p>
+        <p>Tareas: {{ tasks?.length }}</p>
       </div>
      <!-- Aquí va el menu -->
       <ng-content></ng-content>
@@ -52,6 +56,9 @@ import { TITLE } from '../../../app.config';
 export class Header {
 
   appTitle = inject(TITLE);
+  tasks$ = inject(AppStore).tasks$;
+
+
 
   protected readonly title = signal(this.appTitle);
   protected readonly subtitle = signal('Indra Formación');

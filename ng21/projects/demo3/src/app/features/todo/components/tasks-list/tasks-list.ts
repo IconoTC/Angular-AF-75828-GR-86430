@@ -1,11 +1,10 @@
-import { Component, ElementRef, inject, OnInit, signal, viewChild } from '@angular/core';
+import { Component, ElementRef, inject, OnDestroy, OnInit, signal, viewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { TaskForm } from '../task-form/task-form';
 import { TaskItem } from '../task-item/task-item';
-import { Task, TaskDTO } from '../../types/task';
-import { TasksRepoRx } from '../../../../app.routes';
-import { finalize, Observer } from 'rxjs';
+import { Task} from '../../types/task';
 import { Card } from '../../../../core/components/card/card';
-import { HttpErrorResponse } from '@angular/common/http';
+import { AppStore } from '../../../../core/store/app-store';
 
 @Component({
   selector: 'ind-tasks-list',
@@ -13,7 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   template: `
     <details #details>
       <summary>Añadir tarea</summary>
-      <ind-task-form (createEvent)="add($event)" />
+      <ind-task-form (createEvent)="add()" />
     </details>
 
     <ul>
@@ -21,8 +20,7 @@ import { HttpErrorResponse } from '@angular/common/http';
         <li>
           <ind-task-item
             [task]="task"
-            (deleteEvent)="delete($event)"
-            (updateEvent)="update($event)"
+
           />
         </li>
       }
@@ -47,95 +45,36 @@ import { HttpErrorResponse } from '@angular/common/http';
     }
   `,
 })
-export class TasksList implements OnInit {
+export class TasksList implements OnInit, OnDestroy {
+  taskState = inject(AppStore);
   tasks = signal<Task[]>([]);
-  details = viewChild<ElementRef>('details');
-  tasksService = inject(TasksRepoRx);
   error = signal<string | null>(null);
+  details = viewChild<ElementRef>('details');
+  subscriptions: Subscription[] = [];
+
 
   ngOnInit(): void {
+    console.log('Creado TasksList')
     this.load();
+    const subs = this.taskState.error$.subscribe({
+      next: (error) => this.error.set(error),
+    });
+    this.subscriptions.push(subs);
+  }
+
+  ngOnDestroy(): void {
+    console.log('Destruido TasksList');
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 
   load() {
-    const observer: Partial<Observer<Task[]>> = {
-      next: (tasksData) => this.tasks.set(tasksData),
-      error: (err) => {
-        this.error.set(`Error loading tasks - ${err.message}`);
-        console.error('Error loading tasks', err);
-      },
-    };
-
-    this.tasksService.getAll().subscribe(observer);
+    const subs = this.taskState.tasks$.subscribe((tasksData) => this.tasks.set(tasksData));
+    this.subscriptions.push(subs);
   }
 
-  delete(task: Task) {
-    // Operación asíncrona -> repo
-    this.tasksService.delete(task.id).subscribe({
-      next: () => {
-        // Operación -> sincrona -> estado interno
-        const data = this.tasks().filter((t) => t.id !== task.id);
-        this.tasks.set(data);
-      },
-      error: (err: HttpErrorResponse) => {
-        this.error.set(`Error deleting task - ${err.message}`);
-        console.error('Error deleting task', err);
-      },
-    });
-  }
-
-  update(updatedTask: Task) {
-    const { id, ...taskData } = updatedTask;
-
-    // Operación asíncrona -> repo
-    this.tasksService.update(id, taskData).subscribe({
-      next: () => {
-        // Operación -> sincrona -> estado interno
-        const data = this.tasks().map((t) => (t.id === updatedTask.id ? updatedTask : t));
-        this.tasks.set(data);
-      },
-      error: (err) => {
-        this.error.set(`Error updating task - ${err.message}`);
-        console.error('Error updating task', err);
-      },
-    });
-  }
-
-  // Enfoque NO optimista
-  // Operación asíncrona -> repo
-  // Operación -> sincrona -> estado interno
-
-  // Enfoque optimista
-  // Operación -> sincrona -> estado interno
-  // Operación asíncrona -> repo
-
-  add(data: TaskDTO) {
-    const newTask: TaskDTO = {
-      title: data.title,
-      owner: data.owner,
-      isCompleted: false,
-    };
-
-    // Operación asíncrona -> repo
-    this.tasksService
-      .create(newTask)
-      .pipe(
-        finalize(() => {
-          // cerrar el details
-          if (this.details()?.nativeElement.open) {
-            this.details()?.nativeElement.removeAttribute('open');
-          }
-        }),
-      )
-      .subscribe({
-        next: (data: Task) => {
-          // Operación -> sincrona -> estado interno
-          this.tasks.update((tasks) => [...tasks, data]);
-        },
-        error: (err) => {
-          this.error.set(`Error creating task - ${err.message}`);
-          console.error('Error creating task', err);
-        },
-      });
+  add() {
+    if (this.details()?.nativeElement.open) {
+      this.details()?.nativeElement.removeAttribute('open');
+    }
   }
 }

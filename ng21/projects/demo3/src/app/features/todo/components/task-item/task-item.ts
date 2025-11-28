@@ -1,6 +1,7 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Task } from '../../types/task';
 import { Card } from '../../../../core/components/card/card';
+import { AppStore } from '../../../../core/store/app-store';
 
 @Component({
   selector: 'ind-task-item',
@@ -10,9 +11,7 @@ import { Card } from '../../../../core/components/card/card';
       <p>Responsable: {{ task().owner }}</p>
       <p>ID: {{ task().id }}</p>
       <label>
-        <input type="checkbox" [checked]="task().isCompleted"
-        (change)="handleEmitChange()"
-        />
+        <input type="checkbox" [checked]="task().isCompleted" (change)="handleEmitChange()" />
         Completada
       </label>
       <button (click)="handleEmitDelete()">Borrar</button>
@@ -21,12 +20,11 @@ import { Card } from '../../../../core/components/card/card';
   styles: ``,
 })
 export class TaskItem {
+  taskState = inject(AppStore);
   task = input.required<Task>();
-  deleteEvent  = output<Task>();
-  updateEvent  = output<Task>();
 
   handleEmitDelete() {
-    this.deleteEvent.emit(this.task());
+    this.taskState.delete(this.task());
   }
 
   handleEmitChange() {
@@ -34,6 +32,6 @@ export class TaskItem {
       ...this.task(),
       isCompleted: !this.task().isCompleted,
     };
-    this.updateEvent.emit(updatedTask);
+    this.taskState.update(updatedTask);
   }
 }
